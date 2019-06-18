@@ -1,0 +1,13 @@
+cryptography==2.3
+pydub==0.23.1
+lxml==3.5.0
+Cython==0.29.10
+pyOpenSSL==19.0.0
+protobuf==3.8.0
+ipaddr==2.2.0
+numpy==1.16.4
+ordereddict==1.1
+usercustomize==1.0.0
+wincertstore==0.2
+pygobject==3.32.1
+dbus-python==1.2.8
