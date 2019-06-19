@@ -29,8 +29,9 @@ LICENSE = "MIT LICENSE"
 COPYRIGHT = "Copyright (c) {} {}".format(YEAR, NAME)
 COMMENT = "Pomodoro Technique"
 
+RESOURCES_DIR = os.path.join(os.path.abspath(os.path.join(os.getcwd(), os.pardir)), "resources")
 
-CONFIGS_ROOT_DIR = os.path.join(os.path.expanduser('~'), '/home/jentos/Projects/pomodoro-custom/resources/configs')
+CONFIGS_ROOT_DIR = os.path.join(RESOURCES_DIR, "configs")
 CONFIGS_APP_DIR = CONFIGS_ROOT_DIR
 if not os.path.exists(CONFIGS_APP_DIR):
     os.makedirs(CONFIGS_APP_DIR)
@@ -45,7 +46,7 @@ TIMER_CONFIG_FILE = os.path.join(CONFIGS_APP_DIR, TIMER_CONFIG_NAME)
 # Sound files
 SOUNDS_CONFIG_NAME = "sounds_config.json"
 SOUNDS_CONFIG_FILE = os.path.join(CONFIGS_APP_DIR, SOUNDS_CONFIG_NAME)
-SOUNDS_ROOT_DIR = os.path.join(os.path.expanduser('~'), '/home/jentos/Projects/pomodoro-custom/resources/sounds')
+SOUNDS_ROOT_DIR = os.path.join(RESOURCES_DIR, "sounds")
 
 SOUNDS_PARAM_SESSION_START = "session_start"
 SOUNDS_PARAM_BREAK_START = "break_start"
@@ -58,11 +59,11 @@ SOUNDS_FILES_BREAK_START = os.listdir(SOUNDS_DIR_BREAK_START)
 
 
 # Img files
-IMG_ROOT_DIR = "/home/jentos/Projects/pomodoro-custom/resources/img"
+IMG_ROOT_DIR = os.path.join(RESOURCES_DIR, "img")
 IMG_START_FILE = os.path.join(IMG_ROOT_DIR, "start.svg")
 IMG_PAUSE_FILE = os.path.join(IMG_ROOT_DIR, "pause.svg")
 IMG_ICON_FILE = os.path.join(IMG_ROOT_DIR, "test.svg")
-IMG_TEMP_DIR = "/home/jentos/Projects/pomodoro-custom/resources/img/tmp"
+IMG_TEMP_DIR = os.path.join(IMG_ROOT_DIR, "tmp")
 IMG_BASE_DIR = os.path.join(IMG_ROOT_DIR, "base")
 IMG_ICON_BASE = os.path.join(IMG_BASE_DIR, "base.svg")
 
