@@ -29,7 +29,8 @@ LICENSE = "MIT LICENSE"
 COPYRIGHT = "Copyright (c) {} {}".format(YEAR, NAME)
 COMMENT = "Pomodoro Technique"
 
-RESOURCES_DIR = os.path.join(os.path.abspath(os.path.join(os.getcwd(), os.pardir)), "resources")
+# RESOURCES_DIR = os.path.join(os.path.abspath(os.path.join(os.getcwd(), os.pardir)), "resources")
+RESOURCES_DIR = os.path.join(os.path.abspath(os.getcwd()), "resources")
 
 CONFIGS_ROOT_DIR = os.path.join(RESOURCES_DIR, "configs")
 CONFIGS_APP_DIR = CONFIGS_ROOT_DIR
