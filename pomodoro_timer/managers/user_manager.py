@@ -1,4 +1,3 @@
-# from configs.timer_configs import DEFAULT_TIMER_PARAMS
 from pomodoro_timer.configs.main_configs import USER_CONFIG_FILE
 from pomodoro_timer.managers.manager import Manager
 

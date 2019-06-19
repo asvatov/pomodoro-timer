@@ -19,7 +19,7 @@ setuptools.setup(
     project_urls={
         'Documentation': 'https://github.com/asvatov/pomodoro-timer',
         'Funding': 'https://github.com/asvatov/pomodoro-timer',
-        'Say Thanks!': 'http://saythanks.io/to/example',
+        'Say Thanks!': 'https://saythanks.io/to/asvatov',
         'Source': 'https://github.com/asvatov/pomodoro-timer',
         'Tracker': 'https://github.com/asvatov/pomodoro-timer/issues',
     },

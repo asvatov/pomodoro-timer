@@ -11,7 +11,7 @@ from pomodoro_timer.managers.sound_manager import SoundManager
 from pomodoro_timer.managers.time_manager import TimerManager
 from pomodoro_timer.utils.gtk_utils import Notification
 from pomodoro_timer.utils.svg_utils import init_icon
-from pomodoro_timer.utils.utils import play_sound, start_thread
+from pomodoro_timer.utils.utils import play_sound
 
 SESSION_START_PAUSE_TEXT_DEFAULT = STRING_START
 SESSION_START_PAUSE_IMG_DEFAULT = IMG_START_FILE

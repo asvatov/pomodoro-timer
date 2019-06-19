@@ -6,7 +6,7 @@ from pomodoro_timer.configs.main_configs import IMG_ICON_FILE, SOUNDS_FILES_SESS
 from pomodoro_timer.configs.sounds_configs import SOUNDS_PARAM_SESSION_START, SOUNDS_PARAM_SOUND_ON
 from pomodoro_timer.configs.strings_config import STRING_PREFERENCES, STRING_MAIN, STRING_SOUND, STRING_OTHER, STRING_PREF_1, \
     STRING_PREF_2, STRING_PREF_3, STRING_PREF_4, STRING_PREF_5, STRING_PREF_6, STRING_PREF_7, STRING_PREF_8, \
-    STRING_PREF_9, COLON, get_bold
+    COLON, get_bold
 from pomodoro_timer.configs.timer_configs import TIMER_PARAM_NUM_POMODOROS, TIMER_PARAM_SESSION_LENGTH, TIMER_PARAM_BREAK_LENGTH, \
     TIMER_PARAM_LONG_BREAK_LENGTH
 from pomodoro_timer.managers.user_manager import UserManager, USER_PARAM_AUTOSTART
@@ -142,12 +142,6 @@ class PreferencesDialog(gtk.Dialog):
         self.switch7 = gtk.Switch()
         table3.attach(self.switch7, 1, 2, 7, 8, xpadding=5, ypadding=5,
                       xoptions=gtk.AttachOptions.SHRINK)
-        # label8 = gtk.Label(STRING_PREF_9 + COLON)
-        # label8.set_alignment(0, 0.5)
-        # table3.attach(label8, 0, 1, 8, 9, xpadding=5, ypadding=5)
-        # self.switch8 = gtk.Switch()
-        # table3.attach(self.switch8, 1, 2, 8, 9, xpadding=5, ypadding=5,
-        #               xoptions=gtk.AttachOptions.SHRINK)
 
         self.load_timer_preferences()
         self.load_sounds_preferences()

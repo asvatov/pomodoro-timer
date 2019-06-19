@@ -42,4 +42,3 @@ STRING_PREF_6 = "Sound on break start"
 STRING_PREF_7 = "Sound on work start"
 
 STRING_PREF_8 = "Autostart"
-STRING_PREF_9 = "Icon light"

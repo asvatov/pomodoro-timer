@@ -5,17 +5,12 @@ Maintainer: Evgeniy Asvatov <evgeniy.asvatov@phystech.edu>
 Standards-Version: 3.9.5
 Build-Depends: debhelper (>= 9), python3, dh-virtualenv (>= 1.0),
     python3-setuptools, python3-pip, python3-dev, libffi-dev, python3-dbus (>=1.2.0-3), python3-gi (>=3.20.0-0ubuntu1)
-Vcs-Bzr: lp:ubuntu/hello
-Homepage: http://www.gnu.org/software/hello/
+Vcs-Git: git@github.com:asvatov/pomodoro-timer.git
+Homepage: https://github.com/asvatov/pomodoro-timer
 
 Package: pomodoro-timer
 Architecture: any
 Pre-Depends: dpkg (>= 1.16.1), python3 (>= 3.5), ${misc:Pre-Depends}
 Depends: ${shlibs:Depends}
-Description: The classic greeting, and a good example
- The GNU hello program produces a familiar, friendly greeting. It
- allows non-programmers to use a classic computer science tool which
- would otherwise be unavailable to them. Seriously, though: this is
- an example of how to do a Debian package. It is the Debian version of
- the GNU Project's `hello world' program (which is itself an example
- for the GNU Project).
+Description: Pomodoro Technique. Bla bla bla bla
+ bla bla bla

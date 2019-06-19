@@ -33,7 +33,6 @@ from gi.repository import Gtk as gtk
 from gi.repository import AppIndicator3 as appindicator
 from gi.repository import Notify as notify
 from gi.repository import GObject
-# from gi.repository import GLib as glib
 
 
 warnings.filterwarnings("ignore")
