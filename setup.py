@@ -40,5 +40,5 @@ setuptools.setup(
         "Operating System :: POSIX :: Linux",
         "Environment :: X11 Applications :: GTK",
         "Intended Audience :: End Users/Desktop",
-    ],
+    ]
 )

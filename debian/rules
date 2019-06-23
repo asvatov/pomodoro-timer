@@ -1,6 +1,6 @@
 #!/usr/bin/make -f
 
-export DH_VERBOSE = 1
+#export DH_VERBOSE = 1
 
 %:
 	dh $@ --python /usr/bin/python3 --with python-virtualenv --preinstall "pip>=8"

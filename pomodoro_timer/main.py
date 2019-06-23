@@ -1,6 +1,6 @@
 # coding: utf-8
 
-import dbus
+# import dbus
 
 from pomodoro_timer.components.help_menu import get_dropdown_help_menu
 from pomodoro_timer.configs.app_configs import APP_INDICATOR_ID, APP_DBUS_NAME
@@ -177,9 +177,9 @@ class Indicator(GObject.Object):
 
 
 def main():
-    dbus_response = dbus.SessionBus().request_name(APP_DBUS_NAME)
-    if dbus_response != dbus.bus.REQUEST_NAME_REPLY_PRIMARY_OWNER:
-        exit(1)
+    # dbus_response = dbus.SessionBus().request_name(APP_DBUS_NAME)
+    # if dbus_response != dbus.bus.REQUEST_NAME_REPLY_PRIMARY_OWNER:
+    #     exit(1)
     signal.signal(signal.SIGINT, signal.SIG_DFL)
     indicator = Indicator()
     indicator.init()
