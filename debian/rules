@@ -4,3 +4,6 @@
 
 %:
 	dh $@ --python /usr/bin/python3 --with python-virtualenv --preinstall "pip>=8"
+override_dh_install:
+	dh_install resources/img/* usr/share/pomodoro-timer/img
+	dh_install resources/sounds/* usr/share/pomodoro-timer/sounds

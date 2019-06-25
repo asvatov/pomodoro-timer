@@ -1,0 +1,6 @@
+#!/bin/sh
+
+#DEBHELPER#
+
+set -e
+chmod -R 777 /usr/share/pomodoro-timer
