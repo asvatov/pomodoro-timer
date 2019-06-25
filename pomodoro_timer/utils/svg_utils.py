@@ -1,7 +1,7 @@
 import os
 from os.path import isfile, join
 
-from pomodoro_timer.configs.main_configs import IMG_BASE_DIR, IMG_ICON_BASE
+from pomodoro_timer.configs.main_configs import IMG_TEMP_DIR, IMG_ICON_BASE
 from pomodoro_timer.utils.utils import get_random_filename
 
 
@@ -82,7 +82,7 @@ def get_icon(stroke_dashoffset):
 def init_icon():
     icon = get_icon(0)
 
-    icon_dirpath = IMG_BASE_DIR
+    icon_dirpath = IMG_TEMP_DIR
 
     svg_files = [f for f in os.listdir(icon_dirpath) if isfile(join(icon_dirpath, f)) and f.endswith(".svg")]
     if not svg_files:

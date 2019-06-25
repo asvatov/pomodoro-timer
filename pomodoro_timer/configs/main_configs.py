@@ -79,8 +79,9 @@ IMG_START_FILE = os.path.join(IMG_ROOT_DIR, "start.svg")
 IMG_PAUSE_FILE = os.path.join(IMG_ROOT_DIR, "pause.svg")
 IMG_ICON_FILE = os.path.join(IMG_ROOT_DIR, "test.svg")
 IMG_TEMP_DIR = os.path.join(IMG_ROOT_DIR, "tmp")
-IMG_BASE_DIR = os.path.join(IMG_ROOT_DIR, "base")
-IMG_ICON_BASE = os.path.join(IMG_BASE_DIR, "base.svg")
+if not os.path.exists(IMG_TEMP_DIR):
+    os.makedirs(IMG_TEMP_DIR)
+IMG_ICON_BASE = os.path.join(IMG_TEMP_DIR, "base.svg")
 
 
 # AUTOSTART_DIR = os.path.join(CONFIGS_DIR, 'autostart')
