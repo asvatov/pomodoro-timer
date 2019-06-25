@@ -14,7 +14,7 @@ setuptools.setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     license='MIT License',
-    keywords='pomodoro timer indicator time-management',
+    keywords='pomodoro-timer pomodoro timer indicator time-management',
     url="https://github.com/asvatov/pomodoro-timer",
     project_urls={
         'Documentation': 'https://github.com/asvatov/pomodoro-timer',

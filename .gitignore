@@ -6,3 +6,4 @@ resources/img/base/*
 dev_pipeline.sh
 dev_clean.sh
 stash
+.github
