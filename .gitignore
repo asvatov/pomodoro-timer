@@ -1,7 +1,6 @@
 venv2
 .idea
 __pycache__
-FUNDING_default.yml
 resources/img/base/*
 dev_pipeline.sh
 dev_clean.sh
