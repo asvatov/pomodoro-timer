@@ -1,7 +1,7 @@
 venv2
 .idea
 __pycache__
-resources/img/base/*
+resources/img/tmp
 dev_pipeline.sh
 dev_clean.sh
 stash

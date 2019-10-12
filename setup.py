@@ -26,6 +26,10 @@ setuptools.setup(
     # py_modules=["six"],
     install_requires=["pydub"],
     python_requires='>=3',
+    # install_requires={
+    #   'futures; python_version == "2.7"',
+    #   'pydub'
+    # },
     # package_data={},
     # data_files=[('my_data', ['data/data_file'])],
     packages=setuptools.find_packages(),
