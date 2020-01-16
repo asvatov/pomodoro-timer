@@ -87,7 +87,7 @@ class SessionManager:
             self.timer = 0
             self.pomodoros += 1
 
-        if self.pomodoros % self.timer_manager.get(TIMER_PARAM_NUM_POMODOROS) == 0:
+        if self.is_it_long_break():
             self.duration = self.timer_manager.get(TIMER_PARAM_LONG_BREAK_LENGTH) * MINUTE
         else:
             self.duration = self.timer_manager.get(TIMER_PARAM_BREAK_LENGTH) * MINUTE
@@ -102,3 +102,8 @@ class SessionManager:
     def pause_session(self):
         self.start_pause_text = STRING_START
         self.start_pause_img_filepath = IMG_START_FILE
+
+    def is_it_long_break(self):
+        long_break_bool = self.pomodoros % self.timer_manager.get(TIMER_PARAM_NUM_POMODOROS) == 0
+
+        return long_break_bool

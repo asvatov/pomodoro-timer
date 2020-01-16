@@ -19,6 +19,10 @@ STRING_BUGS = "Bug report"
 
 STRING_VERSION = "version"
 
+STRING_STATE_IDLE = "Idle"
+STRING_STATE_WORK = "Work"
+STRING_STATE_BREAK = "Break"
+STRING_STATE_LONG_BREAK = "Long break"
 
 STRING_NOTIFY_START = "Work session started"
 STRING_NOTIFY_END = "Break started"

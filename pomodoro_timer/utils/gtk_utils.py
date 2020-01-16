@@ -60,6 +60,21 @@ def set_menu_text(item, text):
     item.get_child().set_text(text)
 
 
+class ChangeableMenuItem:
+    def __init__(self, text=""):
+        self.text = text
+        self.menu_item = gtk.MenuItem(self.text)
+
+    def set_text(self, text):
+        self.menu_item.get_child().set_text(text)
+
+    def set_item_data(self, text):
+        self.set_text(text)
+
+    def get(self):
+        return self.menu_item
+
+
 class ChangeableImageMenuItem:
     def __init__(self, text="", image_filepath=""):
         self.text = text
