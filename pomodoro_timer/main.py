@@ -1,19 +1,21 @@
 # coding: utf-8
 
-# import dbus
+import dbus
 
+from pomodoro_timer.components.gtk_models import ABoxWindow
 from pomodoro_timer.components.help_menu import get_dropdown_help_menu
 from pomodoro_timer.configs.app_configs import APP_INDICATOR_ID, APP_DBUS_NAME
 from pomodoro_timer.configs.strings_config import STRING_RESET, STRING_STATS, \
     STRING_HELP, STRING_QUIT, STRING_PREFERENCES, STRING_STATE_IDLE, STRING_STATE_WORK, STRING_STATE_BREAK, \
     STRING_STATE_LONG_BREAK
 from pomodoro_timer.configs.timer_configs import SECOND
-from pomodoro_timer.managers.session_manager import SessionManager, SESSION_START_PAUSE_TEXT_DEFAULT, SESSION_START_PAUSE_IMG_DEFAULT
+from pomodoro_timer.managers.session_manager import SessionManager, SESSION_START_PAUSE_TEXT_DEFAULT, \
+    SESSION_START_PAUSE_IMG_DEFAULT
 from pomodoro_timer.managers.sound_manager import SoundManager
 from pomodoro_timer.managers.time_manager import TimerManager
 from pomodoro_timer.components.preferences_dialog import on_preferences_item
-from pomodoro_timer.fsm import TimerFSM, ContinueEvent, StartEvent, PauseEvent, ResetEvent, FSM_STATE_RUN, FSM_STATE_IDLE, \
-    FSM_STATE_PAUSED, FSM_STATE_BREAK, StartBreakEvent
+from pomodoro_timer.fsm import TimerFSM, ContinueEvent, StartEvent, PauseEvent, ResetEvent, FSM_STATE_RUN, \
+    FSM_STATE_IDLE, FSM_STATE_PAUSED, FSM_STATE_BREAK, StartBreakEvent
 from pomodoro_timer.utils.gtk_utils import ChangeableImageMenuItem, ChangeableMenuItem
 from pomodoro_timer.utils.icon_utils import remove_temp_img
 
@@ -24,7 +26,7 @@ import warnings
 import gi
 
 from pomodoro_timer.utils.svg_utils import get_icon
-from pomodoro_timer.utils.utils import get_random_filename
+from pomodoro_timer.utils.utils import get_random_filename, singleton
 
 gi.require_version("Gtk", "3.0")
 gi.require_version('AppIndicator3', '0.1')
@@ -33,19 +35,19 @@ gi.require_version('Notify', '0.7')
 from gi.repository import Gtk as gtk
 from gi.repository import AppIndicator3 as appindicator
 from gi.repository import Notify as notify
-from gi.repository import GObject
+from gi.repository import GObject, Pango
 
 
 warnings.filterwarnings("ignore")
 
 
-def singleton(cls):
-    instances = {}
-    def getinstance():
-        if cls not in instances:
-            instances[cls] = cls()
-        return instances[cls]
-    return getinstance
+def create_window():
+    window = ABoxWindow(tickets=3)
+    # window.set_default_tickets(4)
+    # window.connect("destroy", gtk.main_quit)
+    # win.show_all()
+
+    return window
 
 
 @singleton
@@ -67,6 +69,8 @@ class Indicator(GObject.Object):
 
         self.changeable_item2 = ChangeableMenuItem(STRING_STATE_IDLE)
 
+        self.window = None
+
         self.indicator = appindicator.Indicator.new(APP_INDICATOR_ID, os.path.abspath(self.session.icon_filepath),
                                                     appindicator.IndicatorCategory.SYSTEM_SERVICES)
         self.indicator.set_status(appindicator.IndicatorStatus.ACTIVE)
@@ -74,6 +78,11 @@ class Indicator(GObject.Object):
 
         self.ticking = False
         self.prev_state_state = None
+
+    def recreate_window(self):
+        if self.window is None:
+            self.window = create_window()
+        self.window.show_all()
 
     def change_icon(self, arc):
         icon = get_icon(arc)
@@ -169,7 +178,8 @@ class Indicator(GObject.Object):
         menu.append(menu_sep)
 
         menu_stats = gtk.MenuItem(STRING_STATS)
-        menu_stats.set_sensitive(False)
+        # menu_stats.set_sensitive(False)
+        menu_stats.connect('activate', lambda x: self.recreate_window())
         menu_stats.show()
         menu.append(menu_stats)
 
@@ -201,15 +211,20 @@ class Indicator(GObject.Object):
         return menu
 
     def quit(self, source):
+        try:
+            self.window.save()
+        except AttributeError:
+            pass
+
         notify.uninit()
         remove_temp_img()
         gtk.main_quit()
 
 
 def main():
-    # dbus_response = dbus.SessionBus().request_name(APP_DBUS_NAME)
-    # if dbus_response != dbus.bus.REQUEST_NAME_REPLY_PRIMARY_OWNER:
-    #     exit(1)
+    dbus_response = dbus.SessionBus().request_name(APP_DBUS_NAME)
+    if dbus_response != dbus.bus.REQUEST_NAME_REPLY_PRIMARY_OWNER:
+        exit(1)
     signal.signal(signal.SIGINT, signal.SIG_DFL)
     indicator = Indicator()
     indicator.init()

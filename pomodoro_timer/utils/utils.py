@@ -7,6 +7,16 @@ from threading import Thread
 from pydub.utils import get_player_name
 
 
+def singleton(cls):
+    instances = {}
+
+    def getinstance(*args, **kwargs):
+        if cls not in instances:
+            instances[cls] = cls(*args, **kwargs)
+        return instances[cls]
+    return getinstance
+
+
 def start_thread(func, is_deamon=True):
     thread = Thread(target=func)
     thread.setDaemon(is_deamon)
