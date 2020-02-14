@@ -24,7 +24,7 @@ setuptools.setup(
         'Tracker': 'https://github.com/asvatov/pomodoro-timer/issues',
     },
     # py_modules=["six"],
-    install_requires=["pydub"],
+    install_requires=["pydub", "dbus-python"],
     python_requires='>=3',
     # install_requires={
     #   'futures; python_version == "2.7"',

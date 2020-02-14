@@ -6,3 +6,4 @@ dev_pipeline.sh
 dev_clean.sh
 stash
 .github
+gavno.py

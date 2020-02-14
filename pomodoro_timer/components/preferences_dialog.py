@@ -1,8 +1,11 @@
+import os
+import shutil
+
 import gi
 
 from pomodoro_timer.configs.app_configs import APP_NAME
 from pomodoro_timer.configs.main_configs import IMG_ICON_FILE, SOUNDS_FILES_SESSION_START, \
-    SOUNDS_FILES_BREAK_START, SOUNDS_PARAM_BREAK_START
+    SOUNDS_FILES_BREAK_START, SOUNDS_PARAM_BREAK_START, AUTOSTART_DIR, AUTOSTART_ORIGINAL_FILEPATH, AUTOSTART_FILEPATH
 from pomodoro_timer.configs.sounds_configs import SOUNDS_PARAM_SESSION_START, SOUNDS_PARAM_SOUND_ON
 from pomodoro_timer.configs.strings_config import STRING_PREFERENCES, STRING_MAIN, STRING_SOUND, STRING_OTHER, STRING_PREF_1, \
     STRING_PREF_2, STRING_PREF_3, STRING_PREF_4, STRING_PREF_5, STRING_PREF_6, STRING_PREF_7, STRING_PREF_8, \
@@ -179,6 +182,7 @@ class PreferencesDialog(gtk.Dialog):
                               self.sound_manager.get(SOUNDS_PARAM_SESSION_START))
 
     def load_user_preferences(self):
+        # self.switch7.set_active(os.path.exists(comun.FILE_AUTO_START))
         self.switch7.set_active(self.user_manager.get(USER_PARAM_AUTOSTART))
 
     def save_preferences(self):
@@ -196,6 +200,7 @@ class PreferencesDialog(gtk.Dialog):
         self.sound_manager.save()
 
         self.user_manager.set(USER_PARAM_AUTOSTART, self.switch7.get_active())
+        trigger_autostart_file(self.switch7.get_active())
         self.user_manager.save()
 
 
@@ -207,3 +212,14 @@ def on_preferences_item(widget, parent, **kwargs):
     preferences_dialog.hide()
     preferences_dialog.destroy()
     widget.set_sensitive(True)
+
+
+def trigger_autostart_file(trigger_state):
+    if not os.path.exists(AUTOSTART_DIR):
+        os.makedirs(AUTOSTART_DIR)
+    if trigger_state:
+        if not os.path.exists(AUTOSTART_FILEPATH):
+            shutil.copyfile(AUTOSTART_ORIGINAL_FILEPATH, AUTOSTART_FILEPATH)
+    else:
+        if os.path.exists(AUTOSTART_FILEPATH):
+            os.remove(AUTOSTART_FILEPATH)

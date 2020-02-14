@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=0.1
+Name=Pomodoro Timer
+Comment=Pomodoro Timer is an indicator app for the famous time management technique
+Exec=/usr/bin/pomodoro-timer
+Icon=pomodoro-timer
+Type=Application
+Categories=Utility;

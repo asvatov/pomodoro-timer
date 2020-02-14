@@ -3,7 +3,7 @@ Upstream-Name: pomodoro-timer
 Source: https://github.com/asvatov/pomodoro-timer
 
 Files: *
-Copyright: 2019 Evgeniy Asvatov <evgeniy.asvatov@phystech.edu>
+Copyright: 2020 Evgeniy Asvatov <evgeniy.asvatov@phystech.edu>
 License: MIT
  Permission is hereby granted, free of charge, to any person obtaining
  a copy of this software and associated documentation files (the

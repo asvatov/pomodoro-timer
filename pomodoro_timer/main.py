@@ -174,14 +174,14 @@ class Indicator(GObject.Object):
         menu_reset_item.connect('activate', self.press_reset)
         menu.append(menu_reset_item)
 
-        menu_sep = gtk.SeparatorMenuItem()
-        menu.append(menu_sep)
-
-        menu_stats = gtk.MenuItem(STRING_STATS)
-        # menu_stats.set_sensitive(False)
-        menu_stats.connect('activate', lambda x: self.recreate_window())
-        menu_stats.show()
-        menu.append(menu_stats)
+        # menu_sep = gtk.SeparatorMenuItem()
+        # menu.append(menu_sep)
+        #
+        # menu_stats = gtk.MenuItem(STRING_STATS)
+        # # menu_stats.set_sensitive(False)
+        # menu_stats.connect('activate', lambda x: self.recreate_window())
+        # menu_stats.show()
+        # menu.append(menu_stats)
 
         menu_sep = gtk.SeparatorMenuItem()
         menu.append(menu_sep)

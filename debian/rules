@@ -11,5 +11,6 @@ override_dh_virtualenv:
 override_dh_install:
 	dh_install resources/img/* usr/share/pomodoro-timer/img
 	dh_install resources/sounds/* usr/share/pomodoro-timer/sounds
+	dh_install resources/pomodoro-timer.desktop usr/share/pomodoro-timer
 
 override_dh_clean:

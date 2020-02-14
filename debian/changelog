@@ -3,4 +3,4 @@ pomodoro-timer (0.1) UNRELEASED; urgency=medium
   * Initial release. (Closes: #1)
   * This is my first Debian package.
 
- -- Evgeniy Asvatov <evgeniy.asvatov@phystech.edu>  Sun, 09 Jun 2019 00:35:24 +0300
+ -- Evgeniy Asvatov <evgeniy.asvatov@phystech.edu>  Fri, 13 Feb 2020 20:35:24 +0300

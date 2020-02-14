@@ -21,7 +21,7 @@ WEBSITE_LAUNCHPAD = normalize_url("https://launchpad.net/~asvatov")
 
 NICKNAME = "hippiest"
 NAME = "Evgeniy Asvatov"
-YEAR = "2019"
+YEAR = "2020"
 EMAIL = "evgeniy.asvatov@phystech.edu"
 
 DONATE_WMZ = "Z880678669822"
@@ -84,5 +84,7 @@ if not os.path.exists(IMG_TEMP_DIR):
 IMG_ICON_BASE = os.path.join(IMG_TEMP_DIR, "base.svg")
 
 
-# AUTOSTART_DIR = os.path.join(CONFIGS_DIR, 'autostart')
-# FILE_AUTO_START = os.path.join(AUTOSTART_DIR, APPAUTOSTART)
+AUTOSTART_FILENAME = "pomodoro-timer.desktop"
+AUTOSTART_DIR = os.path.join(os.path.expanduser("~/.config"), 'autostart')
+AUTOSTART_ORIGINAL_FILEPATH = os.path.join(DATA_DIR, AUTOSTART_FILENAME)
+AUTOSTART_FILEPATH = os.path.join(AUTOSTART_DIR, AUTOSTART_FILENAME)
